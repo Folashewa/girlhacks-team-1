@@ -13,21 +13,20 @@ Every group chat grows its own **tree**. Type the chat's code on our website to 
                                                                                on DeepSpace + our GoDaddy domain
 ```
 
-## Tools and the prizes they target
+## Tools
 
 We kept the tool list short. Each tool does one real job.
 
-| Tool | What it does in Keeper | Prize |
-| --- | --- | --- |
-| **Photon Spectrum** | Keeper lives in a real iMessage group: tapbacks, threaded replies, voice notes | Photon track |
-| **Azure OpenAI** | One structured model call per burst finds commitments, decisions and restated ideas | Best Use of Azure by Avanade |
-| **ElevenLabs** | `keeper recap voice`, the 🔊 Recap button, and meeting transcription that tells speakers apart | [MLH] Best Use of ElevenLabs |
-| **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable; a continuous aggregate draws each tree's "growth rings" | [MLH] Best Use of Tiger Data |
-| **Meetings → next steps** | Paste or record a meeting; get owners, decisions and ideas, credited per speaker | AI for the Modern Enterprise by ADP |
-| **Tree codes + Enchanted Grove** | The glowing tree/grove website | Best Enchanted Grove Vibes Hack |
-| **DeepSpace** | Hosts the website on `*.app.space` | Best Use of DeepSpace |
-| **GoDaddy Registry** | Our domain, where people type their tree code | [MLH] Best Domain Name |
-
+| Tool | What it does in Keeper |
+| --- | --- |
+| **Photon Spectrum** | Keeper lives in a real iMessage group: tapbacks, threaded replies, voice notes |
+| **Azure OpenAI** | One structured model call per burst finds commitments, decisions and restated ideas |
+| **ElevenLabs** | `keeper recap voice`, the 🔊 Recap button, and meeting transcription that tells speakers apart |
+| **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable; a continuous aggregate draws each tree's "growth rings" |
+| **Meetings → next steps** | Paste or record a meeting; get owners, decisions and ideas, credited per speaker |
+| **Tree codes + Enchanted Grove** | The glowing tree/grove website |
+| **DeepSpace** | Hosts the website on `*.app.space` |
+| **GoDaddy Registry** | Our domain, where people type their tree code |
 
 ## Quick start (no keys needed)
 
@@ -103,7 +102,7 @@ If the shared Photon number can't join a group, try in order: ask the Photon tab
 | `src/brain.ts` | One structured model call (Azure OpenAI / OpenAI / mock), defensive parsing | B |
 | `src/elevenlabs.ts` | Voice recaps and meeting transcription with speaker labels | B/C |
 | `src/tiger.ts` | Tiger Data: hypertable, continuous aggregate, growth rings | C |
-| `src/meeting.ts` | Meeting transcripts → items (ADP track) | C |
+| `src/meeting.ts` | Meeting transcripts → items | C |
 | `src/api.ts` + `web/` | Code lookup, tree + grove website | C |
 | `src/store.ts` | Memory format (`data/state.json`), tree and grove codes | A |
 | `scenarios/*.txt`, `tests/` | Demo conversations and behaviour tests | B and C |

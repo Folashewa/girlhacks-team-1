@@ -1,38 +1,151 @@
-// Entry: connects a transport, runs Keeper, debounces model passes per chat.
+// Spectrum wiring: connects Keeper to iMessage (Photon), a self-hosted Mac line, or the terminal.
+//   npm run dev       -> iMessage via Photon Spectrum Cloud (PROJECT_ID / PROJECT_SECRET)
+//   npm run local     -> iMessage via a teammate's Mac (IMESSAGE_LOCAL_*)
+//   npm run terminal  -> chat in your terminal, type "Priya: I'll do the slides by Friday"
+//   npm run tree      -> only the API + tree page (reads data/state.json)
+import { type Message, type Space, Spectrum, voice } from "spectrum-ts";
+import { makeBrain } from "./brain.ts";
+import { type ApiDeps, startApi } from "./api.ts";
 import { config } from "./config.ts";
+import { elevenlabsEnabled, transcribe, tts } from "./elevenlabs.ts";
+import { Keeper, type Outbox } from "./keeper.ts";
 import { Store } from "./store.ts";
-import { Keeper, type Action } from "./keeper.ts";
-import { NullBrain } from "./brain.ts";
-import { IMessageTransport, TerminalTransport, type Transport } from "./connection.ts";
+import { Tiger } from "./tiger.ts";
 
-const DEBOUNCE_MS = 6000; // wait for people to finish typing; one model call per burst
+const mode = (process.argv[2] ?? "imessage") as "imessage" | "local" | "terminal" | "api-only";
+const store = new Store(config.dataFile);
+const brain = makeBrain();
+const apiDeps: ApiDeps = { store, brain };
+const api = startApi(apiDeps);
+console.log(`[keeper] mode=${mode} brain=${brain.name} voice=${elevenlabsEnabled() ? "elevenlabs" : "off"} history=${config.tigerUrl ? "tiger" : "memory"}`);
+// Tiger Data connects in the background so a slow or blocked network never stops the bot.
+let tiger: Tiger | undefined;
+if (config.tigerUrl) {
+  void Tiger.connect(config.tigerUrl).then(async (t) => {
+    tiger = apiDeps.tiger = t;
+    await t?.backfill(store).catch((e) => console.error("[tiger] backfill failed:", e.message));
+  });
+}
+// Local convenience only: the codes are secrets, so they're printed here, never served by the API.
+for (const c of Object.values(store.state.chats)) console.log(`[keeper] tree ${c.code}  ${c.title ?? (c.isDm ? "(1:1 chat)" : c.id)}  ${config.publicUrl}/?code=${c.code}`);
 
-const terminal = process.argv.includes("--terminal");
-const store = new Store(terminal ? null : config.dataFile);
-const keeper = new Keeper(store, new NullBrain(), config); // TODO(Task 3): real Brain
-const transport: Transport = terminal ? new TerminalTransport() : new IMessageTransport(config);
+if (mode !== "api-only") await runBot();
 
-const timers = new Map<string, NodeJS.Timeout>();
+async function runBot() {
+  const app = await connect();
+  const spaces = new Map<string, Space>();
 
-async function run(actions: Action[]): Promise<void> {
-  for (const action of actions) {
+  const outbox: Outbox = {
+    async react(spaceKey, ref, emoji) {
+      await (ref as Message | undefined)?.react(emoji);
+    },
+    async send(spaceKey, text, replyTo) {
+      if (replyTo) await (replyTo as Message).reply(text);
+      else await spaces.get(spaceKey)?.send(text);
+    },
+    async sendVoice(spaceKey, audio, replyTo) {
+      const content = voice(audio, { mimeType: "audio/mpeg", name: "keeper-recap.mp3" });
+      if (replyTo) await (replyTo as Message).reply(content);
+      else await spaces.get(spaceKey)?.send(content);
+    },
+  };
+
+  const keeper = new Keeper({
+    store,
+    brain,
+    outbox,
+    rules: config.rules,
+    tts,
+    log: (m) => console.log(`[keeper] ${m}`),
+    onEvent: (e) => tiger?.record(e),
+    publicUrl: config.publicUrl,
+  });
+  const ticker = setInterval(() => void keeper.tick().catch((e) => console.error("[tick]", e)), 30_000);
+
+  const shutdown = async () => {
+    clearInterval(ticker);
+    await keeper.flushAll().catch(() => {});
+    store.save();
+    api.close();
+    await tiger?.close().catch(() => {});
+    await app.stop().catch(() => {});
+    process.exit(0);
+  };
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
+
+  console.log(
+    mode === "terminal"
+      ? "[keeper] ready: type below, e.g.  Priya: I'll do the slides by Friday"
+      : "[keeper] ready: text your Photon line \"keeper help\". Each incoming message is logged here.",
+  );
+  for await (const [space, message] of app.messages) {
     try {
-      await transport.execute(action);
-    } catch (e) {
-      console.error(`failed to ${action.type}:`, e instanceof Error ? e.message : e);
+      // debug line without phone numbers or message text
+      const chatType = (space as { type?: string }).type ?? "chat";
+      console.log(`[in] ${store.chat(space.id).id} (${chatType}) ${message.direction} ${message.content.type}`);
+      if (message.direction !== "inbound" || message.sender?.kind === "agent") continue;
+      if (!spaces.has(space.id) && (space as { type?: string }).type === "group") {
+        // name the tree after the group chat (best-effort; "keeper name ..." overrides)
+        space
+          .getDisplayName()
+          .then((n) => {
+            const chat = store.chat(space.id);
+            if (n && !chat.title) (chat.title = n.slice(0, 40)), store.save();
+          })
+          .catch(() => {});
+      }
+      spaces.set(space.id, space);
+      let text: string | undefined;
+      const c = message.content;
+      if (c.type === "text") text = c.text;
+      else if (c.type === "voice" && elevenlabsEnabled()) {
+        // voice notes become text (with ElevenLabs Scribe) so they're remembered too
+        const turns = await transcribe(await c.read(), c.name ?? "voice.m4a", c.mimeType).catch(() => []);
+        text = turns.map((t) => t.text).join(" ");
+      }
+      if (!text) continue;
+
+      let senderKey = message.sender?.id ?? "unknown";
+      let senderName: string | undefined;
+      if (mode === "terminal") {
+        // one human plays everyone: "Priya: I'll do the slides by Friday"
+        const m = text.match(/^([\p{L}][\p{L} '-]{0,20}):\s*(.+)$/u);
+        if (m) {
+          senderName = m[1]!.trim();
+          senderKey = `terminal:${senderName.toLowerCase()}`;
+          text = m[2]!;
+        }
+      }
+      const isGroup = mode === "terminal" ? true : (space as { type?: string }).type === "group";
+      await keeper.receive({ spaceKey: space.id, senderKey, senderName, text, isGroup, ref: message });
+    } catch (err) {
+      console.error("[keeper] message failed:", err);
     }
   }
 }
 
-await transport.start((msg) => {
-  const { actions, analyze } = keeper.ingest(msg);
-  void run(actions);
-  if (!analyze) return;
-  clearTimeout(timers.get(msg.spaceId));
-  timers.set(msg.spaceId, setTimeout(() => void keeper.analyze(msg.spaceId).then(run), DEBOUNCE_MS));
-});
+async function connect() {
+  if (mode === "terminal") {
+    const { terminal } = await import("spectrum-ts/providers/terminal");
+    return Spectrum({ providers: [terminal.config()] });
+  }
+  const { imessage } = await import("spectrum-ts/providers/imessage");
+  if (mode === "local") {
+    // A self-hosted line (e.g. a teammate's Mac signed into Messages with a spare Apple ID).
+    const l = config.photon.local;
+    if (!l.address || !l.token || !l.phone) fail("Set IMESSAGE_LOCAL_ADDRESS, IMESSAGE_LOCAL_TOKEN and IMESSAGE_LOCAL_PHONE in .env");
+    return Spectrum({
+      projectId: config.photon.projectId,
+      projectSecret: config.photon.projectSecret,
+      providers: [imessage.config({ clients: { address: l.address, token: l.token, phone: l.phone } })],
+    });
+  }
+  if (!config.photon.projectId || !config.photon.projectSecret) fail("Set PROJECT_ID and PROJECT_SECRET in .env (Photon dashboard)");
+  return Spectrum({ projectId: config.photon.projectId, projectSecret: config.photon.projectSecret, providers: [imessage.config()] });
+}
 
-process.on("SIGINT", async () => {
-  await transport.stop();
-  process.exit(0);
-});
+function fail(msg: string): never {
+  console.error(`[keeper] ${msg}`);
+  process.exit(1);
+}

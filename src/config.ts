@@ -20,6 +20,8 @@ export const config = {
       token: env("IMESSAGE_LOCAL_TOKEN"),
       phone: env("IMESSAGE_LOCAL_PHONE"),
     },
+    /** `npm run mac`: optional comma-separated chat ids to listen to (empty = every chat the bot is in). */
+    macChats: env("MAC_CHATS").split(",").map((s) => s.trim()).filter(Boolean),
   },
   azure: {
     endpoint: env("AZURE_OPENAI_ENDPOINT"),

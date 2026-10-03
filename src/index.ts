@@ -1,6 +1,7 @@
 // Spectrum wiring: connects Keeper to iMessage (Photon), a self-hosted Mac line, or the terminal.
 //   npm run dev       -> iMessage via Photon Spectrum Cloud (PROJECT_ID / PROJECT_SECRET)
 //   npm run local     -> iMessage via a teammate's Mac (IMESSAGE_LOCAL_*)
+//   npm run mac       -> iMessage via this Mac's own Messages app (see src/mac.ts)
 //   npm run terminal  -> chat in your terminal, type "Priya: I'll do the slides by Friday"
 //   npm run tree      -> only the API + tree page (reads data/state.json)
 import { type Message, type Space, Spectrum, voice } from "spectrum-ts";
@@ -9,10 +10,15 @@ import { type ApiDeps, startApi } from "./api.ts";
 import { config } from "./config.ts";
 import { elevenlabsEnabled, transcribe, tts } from "./elevenlabs.ts";
 import { Keeper, type Outbox } from "./keeper.ts";
+import { allowedChat, MAC_WARNING } from "./mac.ts";
 import { Store } from "./store.ts";
 import { Tiger } from "./tiger.ts";
 
-const mode = (process.argv[2] ?? "imessage") as "imessage" | "local" | "terminal" | "api-only";
+const mode = (process.argv[2] ?? "imessage") as "imessage" | "local" | "mac" | "terminal" | "api-only";
+const mac = mode === "mac";
+// Messages can't tapback or thread a reply from a script: mac mode skips tapbacks and replies in the chat.
+const canReact = !mac;
+const canThread = !mac;
 const store = new Store(config.dataFile);
 const brain = makeBrain();
 const apiDeps: ApiDeps = { store, brain };
@@ -37,15 +43,16 @@ async function runBot() {
 
   const outbox: Outbox = {
     async react(spaceKey, ref, emoji) {
+      if (!canReact) return;
       await (ref as Message | undefined)?.react(emoji);
     },
     async send(spaceKey, text, replyTo) {
-      if (replyTo) await (replyTo as Message).reply(text);
+      if (replyTo && canThread) await (replyTo as Message).reply(text);
       else await spaces.get(spaceKey)?.send(text);
     },
     async sendVoice(spaceKey, audio, replyTo) {
       const content = voice(audio, { mimeType: "audio/mpeg", name: "keeper-recap.mp3" });
-      if (replyTo) await (replyTo as Message).reply(content);
+      if (replyTo && canThread) await (replyTo as Message).reply(content);
       else await spaces.get(spaceKey)?.send(content);
     },
   };
@@ -84,7 +91,10 @@ async function runBot() {
       // debug line without phone numbers or message text
       const chatType = (space as { type?: string }).type ?? "chat";
       console.log(`[in] ${store.chat(space.id).id} (${chatType}) ${message.direction} ${message.content.type}`);
-      if (message.direction !== "inbound" || message.sender?.kind === "agent") continue;
+      if (mac && !allowedChat(space.id, config.photon.macChats)) continue;
+      // The Mac provider only delivers incoming messages and leaves `direction` unset.
+      const inbound = mac || message.direction === "inbound";
+      if (!inbound || message.sender?.kind === "agent") continue;
       if (!spaces.has(space.id) && (space as { type?: string }).type === "group") {
         // name the tree after the group chat (best-effort; "keeper name ..." overrides)
         space
@@ -129,6 +139,12 @@ async function connect() {
   if (mode === "terminal") {
     const { terminal } = await import("spectrum-ts/providers/terminal");
     return Spectrum({ providers: [terminal.config()] });
+  }
+  if (mac) {
+    if (process.platform !== "darwin") fail("mac mode needs macOS (it drives the Messages app)");
+    console.log(MAC_WARNING);
+    const { localIMessage } = await import("@spectrum-ts/imessage-local");
+    return Spectrum({ providers: [localIMessage.config()] });
   }
   const { imessage } = await import("spectrum-ts/providers/imessage");
   if (mode === "local") {

@@ -11,7 +11,6 @@
     "dev": "tsx watch src/index.ts imessage",
     "start": "tsx src/index.ts imessage",
     "local": "tsx src/index.ts local",
-    "mac": "tsx src/index.ts mac",
     "terminal": "tsx src/index.ts terminal",
     "tree": "tsx src/index.ts api-only",
     "sim": "tsx src/sim.ts",
@@ -20,7 +19,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@spectrum-ts/imessage-local": "^12.10.1",
     "openai": "^7.27.0",
     "pg": "^8.23.1",
     "spectrum-ts": "^12.10.1"

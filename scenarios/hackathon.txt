@@ -1,0 +1,7 @@
+# Credit scenario: Jake restates Priya's idea; Keeper credits Priya and never names Jake.
+Priya: what if we surveyed a few teams first to see what they actually lose in group chats?
+Jake: ok but we need to pick a stack first
+Jake: I say next.js
+Maya: I'll do the figma mockups by 6
+
+Jake: honestly we should survey some teams before building

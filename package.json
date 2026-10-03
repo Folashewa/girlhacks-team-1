@@ -1,0 +1,23 @@
+{
+  "name": "grovekeeper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --import tsx src/index.ts",
+    "terminal": "node --env-file-if-exists=.env --import tsx src/index.ts --terminal",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.15"
+  },
+  "dependencies": {
+    "openai": "^7.27.0",
+    "spectrum-ts": "^12.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}

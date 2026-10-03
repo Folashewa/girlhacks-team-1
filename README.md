@@ -1,6 +1,6 @@
-# Seed 🌱 (Keeper)
+# Grove 🌱 (Keeper)
 
-Keeper is a quiet member of your iMessage group chat. It remembers **who committed to what**, **what was decided**, and **whose idea it was**. When someone's idea gets talked over and restated later, Keeper credits the person who said it first.
+Grove Keeper is a quiet member of your iMessage group chat. It remembers **who committed to what**, **what was decided**, and **whose idea it was**. When someone's idea gets talked over and restated later, Keeper credits the person who said it first.
 
 Every group chat grows its own **tree**. Type the chat's code on our website to see it. If you're in several groups, your trees grow together into an **Enchanted Grove**.
 
@@ -58,7 +58,7 @@ If the shared Photon number can't join a group, try in order: ask the Photon tab
 | Say | What happens |
 | --- | --- |
 | *(nothing)* | Keeper stays silent. 👍 tapback when it records something |
-| `keeper help` | What Keeper does |
+| `keeper help` | What Grove does |
 | `keeper code` | This chat's tree code + link |
 | `keeper name Women in CS board` | Name the tree |
 | `keeper grove` (1:1 only) | Your personal grove code: every tree you're part of |

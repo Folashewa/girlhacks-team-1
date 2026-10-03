@@ -1,0 +1,70 @@
+@import "tailwindcss" source(none);
+
+/* Scan local source for Tailwind class usage. */
+@source "./**/*.{ts,tsx}";
+
+/*
+ * Base tokens for the few non-grove surfaces (toasts, error and 404 screens),
+ * tuned to the Enchanted Grove palette. The grove itself uses grove.css.
+ */
+@theme {
+  --color-background: #07060d;
+  --color-foreground: #ece6f7;
+  --color-popover: #141024;
+  --color-popover-foreground: #ece6f7;
+  --color-primary: #f2c86b;
+  --color-primary-foreground: #1a1408;
+  --color-muted: #1c1630;
+  --color-muted-foreground: #a99cc7;
+  --color-border: rgba(242, 200, 107, 0.18);
+  --color-destructive: #ef4444;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-info: #8fd3ff;
+  --radius: 0.75rem;
+}
+
+/* Enter/exit animations used by toasts. */
+@keyframes animate-in {
+  from { opacity: var(--tw-enter-opacity, 1); transform: translate3d(var(--tw-enter-translate-x, 0), 0, 0); }
+}
+@keyframes animate-out {
+  to { opacity: var(--tw-exit-opacity, 1); transform: translate3d(var(--tw-exit-translate-x, 0), 0, 0); }
+}
+@utility animate-in {
+  animation-name: animate-in;
+  animation-duration: 150ms;
+  animation-fill-mode: both;
+}
+@utility animate-out {
+  animation-name: animate-out;
+  animation-duration: 150ms;
+  animation-fill-mode: both;
+}
+@utility fade-in-0 { --tw-enter-opacity: 0; }
+@utility fade-out-0 { --tw-exit-opacity: 0; }
+@utility slide-in-from-right-2 { --tw-enter-translate-x: 0.5rem; }
+@utility slide-out-to-right-2 { --tw-exit-translate-x: 0.5rem; }
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  html, body, #root {
+    min-height: 100vh;
+    background-color: var(--color-background);
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    color: var(--color-foreground);
+  }
+
+  /* No 300ms tap delay on phones. */
+  a, button, [role="button"] {
+    touch-action: manipulation;
+  }
+}

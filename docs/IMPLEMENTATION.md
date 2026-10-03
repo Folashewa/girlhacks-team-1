@@ -136,7 +136,7 @@ iMessage → Spectrum (index.ts) → Keeper.ingest()       commands + private re
 |---|---|---|
 | **A — Agent** | Tasks 1, 2, 4, 6 | `src/index.ts`, `src/keeper.ts`, `src/commands.ts`, `src/sync.ts` |
 | **B — Brain & tests** | Tasks 3, 7, 9 | `src/prompts.ts`, `scenarios/`, `tests/`, `scripts/` |
-| **C — Tree site (DeepSpace)** | Tasks 5, 8 | the separate `grove-site/` DeepSpace app |
+| **C — Tree site (DeepSpace)** | Tasks 5, 8 | the separate `site/` DeepSpace app |
 
 Only one person edits a given file at a time. Commit small and often (`git commit` after each task's DoD).
 

@@ -1,6 +1,6 @@
 # Grovekeeper — Implementation Plan
 
-> **For Claude Code:** this is the single source of truth for what to build. Read `CLAUDE.md` first (working rules), then this file. Work one task at a time, in order. Each task has: goal, files, exact spec, tests to add, and a definition of done (DoD). Do not start a task until the previous task's DoD passes. If something in this file is ambiguous, stop and ask the human instead of guessing.
+> **How to use this file:** this is the single source of truth for what to build. Work one task at a time, in order. Each task has: goal, files, exact spec, tests to add, and a definition of done (DoD). Do not start a task until the previous task's DoD passes. If something in this file is ambiguous, stop and ask the human instead of guessing.
 
 Hackathon: GirlHacks 2026 (NJIT), theme "Enchanted Grove". Started Sat Oct 3, 10:30am. Submission ~10:30am Sun Oct 4 (confirm exact time on Devpost). Team of 3.
 
@@ -49,7 +49,6 @@ It lives in the chat (built on Photon Spectrum). A companion **tree website** (b
 
 ```
 keeper/
-  CLAUDE.md                 working rules for Claude Code
   docs/IMPLEMENTATION.md    this file
   src/
     index.ts                entry: connects Spectrum, executes Actions, timers, shutdown
@@ -304,7 +303,7 @@ npx deepspace auth login
 npx deepspace app init
 npx deepspace dev start
 ```
-The scaffold includes DeepSpace instructions for coding agents. **Before writing code, have Claude read the scaffold's own agent instructions and the SDK docs (https://docs.deep.space).** Use the SDK's own primitives for collections, real-time sync, auth and permissions — do not hand-roll websockets.
+**Before writing code, read the DeepSpace SDK docs (https://docs.deep.space).** Use the SDK's own primitives for collections, real-time sync, auth and permissions — do not hand-roll websockets.
 
 #### 5.1 Backend (DeepSpace worker)
 

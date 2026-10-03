@@ -1,0 +1,54 @@
+# Demo chat 1 (the hero): a class group project where nobody knows who's doing what.
+# title: CS 4800 Capstone 🎓
+# Format: "Name: message". "---" ends a burst (Keeper thinks). "@wait N" skips N minutes.
+# "+Name: message" only happens in the "with Keeper" replay.
+# "@lost \"snippet\" text" is a callout shown during the "without Keeper" replay; it outlines the message containing the snippet.
+Priya: ok team we need to actually start this project lol
+Dana: what if we interview a few students before we build anything? so we know what they actually want
+Jake: nah no time, let's just start coding
+Leo: agreed we can figure it out as we go
+@lost "interview a few" Dana's idea got talked over
+---
+Maya: I'll do the slides by Sunday
+Jake: wait are we meeting this week
+Priya: does thursday work for everyone?
+Leo: I have lab thursday till 5
+Maya: thursday works after 6
+@lost "slides by Sunday" Maya's slides: easy to miss in the scroll
+---
+Jake: did anyone see the new marvel trailer 😭
+Leo: YES
+Maya: not now jake
+Priya: focus guys pls
+---
+Leo: I can set up the backend API by Wednesday
+Priya: ok so thursday 7pm library room 204?
+Dana: works for me
+Jake: 👍
+@lost "backend API" Leo's API task, buried between memes
+---
+Jake: lol who's writing the report
+Priya: I'll write the report but I need everyone's parts by Friday
+Dana: can someone send me the rubric
+@lost "parts by Friday" Report deadline: Friday, said once
+---
+@wait 90
+Jake: wait when are we meeting again
+Maya: was it 6 or 7??
+Dana: I thought it was friday
+@lost "6 or 7" Meeting time asked 3 times
+---
+@wait 30
+Jake: honestly we should interview some students before we build. would save us so much time
+@lost "honestly we should interview" Jake now "has" Dana's idea
+---
+Maya: who's doing what again 😭 I'm lost
+@lost "who's doing what" Nobody knows who owns what
+---
++Priya: keeper what's still open?
+---
++Dana: keeper code
+---
+Leo: api is done btw, pushed to github
+---
++Priya: keeper recap

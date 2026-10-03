@@ -12,6 +12,10 @@ Extract three kinds of items:
   * Sarcasm or jokes are NOT commitments ("sure I'll do everything lol", "I'll just fail then").
 - "decision": the group settles on something ("ok let's go with the tree design", "decided: we present at 3").
 - "idea": a concrete suggestion for the project ("what if we survey users first?"). Skip vague chatter.
+  * Scheduling questions and proposed times ("does thursday work?", "thursday at 6?") are NOT ideas.
+    When the group settles a time or plan, record only the decision.
+  * Never record the same thing twice: if a proposal is agreed in these messages, it is one decision, not an idea plus a decision.
+  * Generic urging ("we need to start this project", "let's focus") is NOT an idea.
 
 Also detect:
 - "updates": an existing open item is now done or dropped ("slides are done", "nvm let's not survey").

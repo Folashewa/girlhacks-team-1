@@ -1,4 +1,4 @@
-// Read-only data for the tree page, plus meeting upload (ADP) and voice recap (ElevenLabs).
+// Read-only data for the tree page, plus meeting upload (ADP), voice recap (ElevenLabs) and the web iMessage simulator.
 // Trees are only reachable with their secret code; there is no "list everything" endpoint.
 // Never returns phone numbers or raw message text.
 import { createHash } from "node:crypto";
@@ -12,6 +12,7 @@ import { recap } from "./keeper.ts";
 import { ingestMeeting, parseTranscript } from "./meeting.ts";
 import { type Chat, nameOf, type Store } from "./store.ts";
 import { growthFromMemory, type Tiger } from "./tiger.ts";
+import { demoLookup, demoTree, LiveChat } from "./live.ts";
 
 const WEB_DIR = join(import.meta.dirname, "..", "web");
 const MIME: Record<string, string> = {
@@ -21,6 +22,8 @@ const MIME: Record<string, string> = {
   ".svg": "image/svg+xml",
   ".png": "image/png",
   ".ico": "image/x-icon",
+  ".json": "application/json; charset=utf-8",
+  ".mp3": "audio/mpeg",
 };
 const MAX_UPLOAD = 25 * 1024 * 1024;
 
@@ -65,6 +68,7 @@ export function startApi(deps: ApiDeps) {
   const { store, brain } = deps; // deps.tiger may connect later, so it's read per request
   const audioCache = new Map<string, Buffer>();
   const misses = new Map<string, { n: number; reset: number }>();
+  const live = new LiveChat(store, brain, { tts, onEvent: (e) => deps.tiger?.record(e) });
 
   /** Slow down anyone guessing codes: 20 wrong codes per minute per IP. */
   const tooManyMisses = (req: IncomingMessage, miss: boolean) => {
@@ -96,6 +100,8 @@ export function startApi(deps: ApiDeps) {
         if (chat) return json(res, { type: "tree", trees: [publicChat(chat)] });
         const grove = store.groveByCode(code);
         if (grove) return json(res, { type: "grove", trees: grove.map(publicChat) });
+        const recorded = demoLookup(code);
+        if (recorded) return json(res, recorded);
         tooManyMisses(req, true);
         return json(res, { error: "No tree with that code. Text \"keeper code\" in your group chat to get it." }, 404);
       }
@@ -104,6 +110,16 @@ export function startApi(deps: ApiDeps) {
       if (req.method === "GET" && m) {
         if (tooManyMisses(req, false)) return json(res, { error: "too many tries, wait a minute" }, 429);
         const chat = store.chatByCode(m[1]!);
+        const recorded = chat ? undefined : demoTree(m[1]!);
+        if (recorded) {
+          if (!m[2]) return json(res, recorded.tree);
+          if (m[2] === "/growth") return json(res, recorded.growth());
+          if (m[2] === "/recap") return json(res, { text: recorded.recap });
+          const audio = recorded.mp3 ? await readFile(recorded.mp3).catch(() => undefined) : undefined;
+          if (!audio) return json(res, { error: "no recorded voice", text: recorded.recap }, 503);
+          res.writeHead(200, { "content-type": "audio/mpeg", "content-length": audio.length });
+          return res.end(audio);
+        }
         if (!chat) {
           tooManyMisses(req, true);
           return json(res, { error: "not found" }, 404);
@@ -145,6 +161,17 @@ export function startApi(deps: ApiDeps) {
         const out = await ingestMeeting(store, brain, config.rules, title, turns, Date.now, (e) => deps.tiger?.record(e));
         return json(res, out, 201);
       }
+      // The web iMessage simulator: the real Keeper and model, on this machine only (or with INGEST_TOKEN).
+      if (req.method === "POST" && path === "/api/live") {
+        if (!onThisMachine(req) && !(process.env.INGEST_TOKEN && authorized(req))) return json(res, { error: "the live chat only runs on the presenting laptop" }, 403);
+        const body = JSON.parse((await readBody(req)).toString("utf8") || "{}") as { room?: string; who?: string; text?: string };
+        const room = String(body.room ?? "live").toLowerCase().replace(/[^a-z0-9-]/g, "").slice(0, 20) || "live";
+        const who = String(body.who ?? "").replace(/[^\p{L}\p{N} .'-]/gu, "").trim().slice(0, 24);
+        const text = String(body.text ?? "").trim().slice(0, 500);
+        if (!who || !text) return json(res, { error: "who and text are required" }, 400);
+        const out = await live.say(room, who, text);
+        return json(res, { events: out.events, tree: publicChat(out.chat) });
+      }
       if (req.method === "GET" && !path.startsWith("/api/")) return serveStatic(res, path);
       return json(res, { error: "not found" }, 404);
     } catch (err) {
@@ -167,6 +194,13 @@ export function toolStatus(brain: Brain, tiger?: Tiger) {
     elevenlabs: elevenlabsEnabled(),
     tiger: tiger ? (tiger.timescale ? "timescaledb" : "postgres") : false,
   };
+}
+
+/** A direct request from this laptop, not through a tunnel or proxy. */
+function onThisMachine(req: IncomingMessage) {
+  const ip = req.socket.remoteAddress ?? "";
+  const proxied = req.headers["cf-connecting-ip"] || req.headers["x-forwarded-for"];
+  return !proxied && (ip === "127.0.0.1" || ip === "::1" || ip === "::ffff:127.0.0.1");
 }
 
 function authorized(req: IncomingMessage) {

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Keeper Demo</title>
+<meta name="description" content="A recorded Keeper demo: a messy group project chat, then the same chat with Keeper, then the grove." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=DM+Sans:wght@400;500;700&display=swap" />
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="demo.css" />
+</head>
+<body class="demo">
+<div id="stars" aria-hidden="true"></div>
+
+<header class="stageBar">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-3.5-2.6-6-6.5-6 0 3.6 2.7 6 6.5 6Z"/><path d="M12 10c0-3 2.3-5.3 5.8-5.3 0 3.1-2.4 5.3-5.8 5.3Z"/></svg>
+    <span class="wordmark">Keeper</span>
+  </div>
+  <nav class="acts" id="acts">
+    <button data-act="0">0 · Title</button>
+    <button data-act="1">1 · The mess</button>
+    <button data-act="2">2 · With Keeper</button>
+    <button data-act="3">3 · The grove</button>
+    <button data-act="4">4 · Try it live</button>
+  </nav>
+  <div class="controls">
+    <button id="playBtn" title="Play / pause (space)">⏸</button>
+    <button id="restartBtn" title="Restart this act (R)">↺</button>
+    <select id="speed" title="Speed"><option value="0.6">0.6×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2.5">2.5×</option></select>
+  </div>
+</header>
+
+<!-- ============ ACT 0: title ============ -->
+<section class="act" id="act0">
+  <div class="titleCard">
+    <p class="kicker">GirlHacks 2026</p>
+    <h1>Every group chat is a grove.</h1>
+    <p class="lead">Ideas are seeds, and seeds get trampled. <b>Keeper</b> lives in your iMessage group, quietly remembers who's doing what, and makes sure every idea is remembered as yours.</p>
+    <p class="hint">Press <kbd>→</kbd> to start</p>
+  </div>
+</section>
+
+<!-- ============ ACTS 1 + 2: chat + side ============ -->
+<section class="act" id="actChat" hidden>
+  <div class="phone">
+    <div class="notch"></div>
+    <div class="chatHead">
+      <div class="avatars" id="avatars"></div>
+      <b id="chatTitle"></b>
+      <span id="chatSub"></span>
+    </div>
+    <div class="msgs" id="msgs"></div>
+    <div class="typing" id="typing" hidden><span></span><span></span><span></span></div>
+    <form class="composer" id="composer" hidden autocomplete="off">
+      <div class="senders" id="senders" role="radiogroup" aria-label="Send as"></div>
+      <div class="row">
+        <input id="liveInput" placeholder="iMessage" maxlength="500" aria-label="Message" />
+        <button class="send" aria-label="Send">↑</button>
+      </div>
+    </form>
+  </div>
+
+  <aside class="side" id="lostSide">
+    <h2>What got lost</h2>
+    <p class="lead" id="lostLead">Watch the chat. Every buried task, date and idea shows up here.</p>
+    <div id="lostList" class="lostList"></div>
+    <div id="lostSum" class="lostSum" hidden></div>
+  </aside>
+
+  <aside class="side" id="treeSide" hidden>
+    <h2 id="treeHead">The chat's tree</h2>
+    <div class="liveTools" id="liveTools" hidden>
+      <p class="lead">Type as anyone in the group. This is the real Keeper and the real model, live.</p>
+      <div class="chips" id="suggest"></div>
+      <div class="row"><a id="openTree" class="openLink" target="_blank" rel="noopener" hidden>Open this tree ↗</a><button id="resetLive" type="button">Start over</button></div>
+    </div>
+    <svg id="tree" viewBox="0 90 800 570" role="img" aria-label="The group's tree"></svg>
+    <div id="tooltip" hidden></div>
+    <div class="stats" id="stats"></div>
+    <div id="lists" class="demoLists"></div>
+  </aside>
+</section>
+
+<!-- ============ ACT 3: grove ============ -->
+<section class="act" id="act3" hidden>
+  <div class="groveHead">
+    <h1>Priya's Enchanted Grove</h1>
+    <p class="lead" id="groveSub"></p>
+  </div>
+  <div class="groveTrees" id="groveTrees"></div>
+  <div class="groveGround" aria-hidden="true"></div>
+  <p class="closing" id="closing">Every group chat grows a tree. Every person grows a grove.</p>
+  <p class="closing" id="groveLinkRow"><a id="groveLink" class="openLink" target="_blank" rel="noopener" hidden>Open Priya's grove on the website ↗</a></p>
+</section>
+
+<div class="caption" id="caption"></div>
+<audio id="recapAudio" src="demo/recap.mp3" preload="auto"></audio>
+<script src="demo.js" type="module"></script>
+</body>
+</html>

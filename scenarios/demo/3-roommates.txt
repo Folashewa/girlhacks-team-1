@@ -1,0 +1,10 @@
+# Demo chat 3: roommates. Priya is in this one too.
+# title: Apt 4B 🏠
+Sam: wifi bill is due again
+Priya: I'll pay the wifi bill by Friday
+---
+Jordan: can we all do a deep clean sunday?
+Sam: ok sunday it is
+---
+Jordan: what if we made a chore wheel so nobody fights about dishes
+Sam: lol fair

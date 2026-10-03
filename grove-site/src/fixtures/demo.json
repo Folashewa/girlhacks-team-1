@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "chat": { "treeKey": "demo", "alias": "g1", "title": "GirlHacks team", "updatedAt": 1759500000000 },
+  "people": [
+    { "personKey": "p1", "name": "Priya", "colorIndex": 0 },
+    { "personKey": "p2", "name": "Jake", "colorIndex": 1 },
+    { "personKey": "p3", "name": "Maya", "colorIndex": 2 }
+  ],
+  "items": [
+    { "id": "I1", "kind": "idea", "text": "Make it live in the group chat instead of an app", "status": "open", "from": "p1", "owner": null, "due": null, "dueAt": null, "discussed": true, "credited": true, "createdAt": 1759500000000, "updatedAt": 1759501200000 },
+    { "id": "I2", "kind": "commitment", "text": "Figma mockups", "status": "done", "from": "p3", "owner": "p3", "due": "by 6", "dueAt": null, "discussed": false, "credited": false, "createdAt": 1759500060000, "updatedAt": 1759510000000 },
+    { "id": "I3", "kind": "commitment", "text": "Set up the repo", "status": "open", "from": "p2", "owner": "p2", "due": null, "dueAt": null, "discussed": false, "credited": false, "createdAt": 1759500120000, "updatedAt": 1759500120000 },
+    { "id": "I4", "kind": "request", "text": "Submit the Devpost", "status": "open", "from": "p1", "owner": null, "due": "before 10:30am", "dueAt": null, "discussed": false, "credited": false, "createdAt": 1759500300000, "updatedAt": 1759500300000 },
+    { "id": "I5", "kind": "decision", "text": "Pivot to a group chat agent", "status": "open", "from": "p1", "owner": null, "due": null, "dueAt": null, "discussed": false, "credited": false, "createdAt": 1759501300000, "updatedAt": 1759501300000 },
+    { "id": "I6", "kind": "question", "text": "Who presents the demo?", "status": "open", "from": "p3", "owner": null, "due": null, "dueAt": null, "discussed": false, "credited": false, "createdAt": 1759501400000, "updatedAt": 1759501400000 }
+  ]
+}

@@ -1,0 +1,2330 @@
+{
+ "brain": "azure:gpt-5-mini",
+ "voice": true,
+ "grove": "GROVE-B67FWN",
+ "chats": [
+  {
+   "file": "1-capstone.txt",
+   "title": "CS 4800 Capstone 🎓",
+   "code": "LILY-LSCPQH",
+   "events": [
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "ok team we need to actually start this project lol"
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "what if we interview a few students before we build anything? so we know what they actually want"
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "nah no time, let's just start coding"
+    },
+    {
+     "t": "msg",
+     "who": "Leo",
+     "text": "agreed we can figure it out as we go"
+    },
+    {
+     "t": "lost",
+     "text": "Dana's idea got talked over",
+     "ref": "interview a few"
+    },
+    {
+     "t": "react",
+     "ref": "what if we interview a few students before we build anything? so we know what they actually want"
+    },
+    {
+     "t": "react",
+     "ref": "agreed we can figure it out as we go"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       }
+      ],
+      "stats": {
+       "open": 2,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 4,
+       "messages": 4
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Maya",
+     "text": "I'll do the slides by Sunday"
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "wait are we meeting this week"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "does thursday work for everyone?"
+    },
+    {
+     "t": "msg",
+     "who": "Leo",
+     "text": "I have lab thursday till 5"
+    },
+    {
+     "t": "msg",
+     "who": "Maya",
+     "text": "thursday works after 6"
+    },
+    {
+     "t": "lost",
+     "text": "Maya's slides: easy to miss in the scroll",
+     "ref": "slides by Sunday"
+    },
+    {
+     "t": "react",
+     "ref": "I'll do the slides by Sunday"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       }
+      ],
+      "stats": {
+       "open": 3,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 9
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "did anyone see the new marvel trailer 😭"
+    },
+    {
+     "t": "msg",
+     "who": "Leo",
+     "text": "YES"
+    },
+    {
+     "t": "msg",
+     "who": "Maya",
+     "text": "not now jake"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "focus guys pls"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       }
+      ],
+      "stats": {
+       "open": 3,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 13
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Leo",
+     "text": "I can set up the backend API by Wednesday"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "ok so thursday 7pm library room 204?"
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "works for me"
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "👍"
+    },
+    {
+     "t": "lost",
+     "text": "Leo's API task, buried between memes",
+     "ref": "backend API"
+    },
+    {
+     "t": "react",
+     "ref": "I can set up the backend API by Wednesday"
+    },
+    {
+     "t": "react",
+     "ref": "ok so thursday 7pm library room 204?"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       }
+      ],
+      "stats": {
+       "open": 5,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 17
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "lol who's writing the report"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "I'll write the report but I need everyone's parts by Friday"
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "can someone send me the rubric"
+    },
+    {
+     "t": "lost",
+     "text": "Report deadline: Friday, said once",
+     "ref": "parts by Friday"
+    },
+    {
+     "t": "react",
+     "ref": "I'll write the report but I need everyone's parts by Friday"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 20
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 20
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "wait",
+     "min": 90
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "wait when are we meeting again"
+    },
+    {
+     "t": "msg",
+     "who": "Maya",
+     "text": "was it 6 or 7??"
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "I thought it was friday"
+    },
+    {
+     "t": "lost",
+     "text": "Meeting time asked 3 times",
+     "ref": "6 or 7"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 23
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 5,
+       "messages": 23
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "wait",
+     "min": 30
+    },
+    {
+     "t": "msg",
+     "who": "Jake",
+     "text": "honestly we should interview some students before we build. would save us so much time"
+    },
+    {
+     "t": "lost",
+     "text": "Jake now \"has\" Dana's idea",
+     "ref": "honestly we should interview"
+    },
+    {
+     "t": "keeper",
+     "text": "Love this. That builds on Dana's idea from earlier 🌱 (\"interview a few students before building anything\")"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 24
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Maya",
+     "text": "who's doing what again 😭 I'm lost"
+    },
+    {
+     "t": "lost",
+     "text": "Nobody knows who owns what",
+     "ref": "who's doing what"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 25
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "keeper what's still open?",
+     "keeperOnly": true
+    },
+    {
+     "t": "keeper",
+     "text": "To do:\n#3 prepare slides (Maya, Sunday)\n#4 set up backend API (Leo, Wednesday)\n#6 write the report (Priya, Friday)\n\nDecided:\n#2 start coding now and figure details as we go\n#5 meet Thursday 7pm in library room 204\n\nIdeas:\n#1 interview a few students before building anything (Dana's idea)",
+     "replyTo": "keeper what's still open?"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 25
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "keeper code",
+     "keeperOnly": true
+    },
+    {
+     "t": "keeper",
+     "text": "Your tree code is LILY-LSCPQH 🌳 Anyone in this chat can open it:\nhttp://127.0.0.1:8787/?code=LILY-LSCPQH",
+     "replyTo": "keeper code"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "open",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 6,
+       "done": 0,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 25
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Leo",
+     "text": "api is done btw, pushed to github"
+    },
+    {
+     "t": "react",
+     "ref": "api is done btw, pushed to github"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "done",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791043760000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 5,
+       "done": 1,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 26
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "keeper recap",
+     "keeperOnly": true
+    },
+    {
+     "t": "keeper",
+     "text": "Here's where things stand. You decided: start coding now and figure details as we go; meet Thursday 7pm in library room 204. Still to do: Maya will prepare slides by Sunday; Priya will write the report by Friday. Ideas on the table: Dana's idea to interview a few students before building anything. 1 thing already done. Nice work.",
+     "replyTo": "keeper recap"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "LILY-LSCPQH",
+      "title": "CS 4800 Capstone 🎓",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Priya"
+       },
+       {
+        "alias": "P2",
+        "name": "Dana"
+       },
+       {
+        "alias": "P3",
+        "name": "Jake"
+       },
+       {
+        "alias": "P4",
+        "name": "Leo"
+       },
+       {
+        "alias": "P5",
+        "name": "Maya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "idea",
+        "text": "interview a few students before building anything",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": true,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791043680000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "start coding now and figure details as we go",
+        "status": "open",
+        "from": "Leo",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036080000,
+        "updatedAt": 1791036080000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "prepare slides",
+        "status": "open",
+        "from": "Maya",
+        "owner": "Maya",
+        "due": "Sunday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036180000,
+        "updatedAt": 1791036180000
+       },
+       {
+        "id": "i4",
+        "kind": "commitment",
+        "text": "set up backend API",
+        "status": "done",
+        "from": "Leo",
+        "owner": "Leo",
+        "due": "Wednesday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791043760000
+       },
+       {
+        "id": "i5",
+        "kind": "decision",
+        "text": "meet Thursday 7pm in library room 204",
+        "status": "open",
+        "from": "Priya",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036340000,
+        "updatedAt": 1791036340000
+       },
+       {
+        "id": "i6",
+        "kind": "commitment",
+        "text": "write the report",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791036400000,
+        "updatedAt": 1791036400000
+       }
+      ],
+      "stats": {
+       "open": 5,
+       "done": 1,
+       "ideas": 1,
+       "credits": 1,
+       "people": 5,
+       "messages": 26
+      },
+      "quiet": false
+     }
+    }
+   ],
+   "recap": "Here's where things stand. You decided: start coding now and figure details as we go; meet Thursday 7pm in library room 204. Still to do: Maya will prepare slides by Sunday; Priya will write the report by Friday. Ideas on the table: Dana's idea to interview a few students before building anything. 1 thing already done. Nice work."
+  },
+  {
+   "file": "2-club.txt",
+   "title": "Women in CS Board 💜",
+   "code": "SAGE-W95D6A",
+   "events": [
+    {
+     "t": "msg",
+     "who": "Ama",
+     "text": "info session next week! when should we do it"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "does thursday at 6 work for everyone?"
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "yes, thursday at 6 it is"
+    },
+    {
+     "t": "react",
+     "ref": "yes, thursday at 6 it is"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "SAGE-W95D6A",
+      "title": "Women in CS Board 💜",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Ama"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Dana"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "decision",
+        "text": "Info session scheduled Thursday at 6",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": "Thursday at 6",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043840000,
+        "updatedAt": 1791043840000
+       }
+      ],
+      "stats": {
+       "open": 1,
+       "done": 0,
+       "ideas": 0,
+       "credits": 0,
+       "people": 3,
+       "messages": 3
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "I'll book the room by Monday"
+    },
+    {
+     "t": "msg",
+     "who": "Ama",
+     "text": "I'll make the flyer by Saturday"
+    },
+    {
+     "t": "react",
+     "ref": "I'll book the room by Monday"
+    },
+    {
+     "t": "react",
+     "ref": "I'll make the flyer by Saturday"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "SAGE-W95D6A",
+      "title": "Women in CS Board 💜",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Ama"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Dana"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "decision",
+        "text": "Info session scheduled Thursday at 6",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": "Thursday at 6",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043840000,
+        "updatedAt": 1791043840000
+       },
+       {
+        "id": "i2",
+        "kind": "commitment",
+        "text": "Book the room",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Monday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043880000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "Make the flyer",
+        "status": "open",
+        "from": "Ama",
+        "owner": "Ama",
+        "due": "Saturday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043880000
+       }
+      ],
+      "stats": {
+       "open": 3,
+       "done": 0,
+       "ideas": 0,
+       "credits": 0,
+       "people": 3,
+       "messages": 5
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Dana",
+     "text": "what if we do a boba social after the info session"
+    },
+    {
+     "t": "msg",
+     "who": "Ama",
+     "text": "omg yes"
+    },
+    {
+     "t": "react",
+     "ref": "what if we do a boba social after the info session"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "SAGE-W95D6A",
+      "title": "Women in CS Board 💜",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Ama"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Dana"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "decision",
+        "text": "Info session scheduled Thursday at 6",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": "Thursday at 6",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043840000,
+        "updatedAt": 1791043840000
+       },
+       {
+        "id": "i2",
+        "kind": "commitment",
+        "text": "Book the room",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Monday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043880000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "Make the flyer",
+        "status": "open",
+        "from": "Ama",
+        "owner": "Ama",
+        "due": "Saturday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043880000
+       },
+       {
+        "id": "i4",
+        "kind": "idea",
+        "text": "Boba social after the info session",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043920000,
+        "updatedAt": 1791043920000
+       }
+      ],
+      "stats": {
+       "open": 4,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 3,
+       "messages": 7
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Ama",
+     "text": "flyer is done!"
+    },
+    {
+     "t": "react",
+     "ref": "flyer is done!"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "SAGE-W95D6A",
+      "title": "Women in CS Board 💜",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Ama"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Dana"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "decision",
+        "text": "Info session scheduled Thursday at 6",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": "Thursday at 6",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043840000,
+        "updatedAt": 1791043840000
+       },
+       {
+        "id": "i2",
+        "kind": "commitment",
+        "text": "Book the room",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Monday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043880000
+       },
+       {
+        "id": "i3",
+        "kind": "commitment",
+        "text": "Make the flyer",
+        "status": "done",
+        "from": "Ama",
+        "owner": "Ama",
+        "due": "Saturday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043880000,
+        "updatedAt": 1791043940000
+       },
+       {
+        "id": "i4",
+        "kind": "idea",
+        "text": "Boba social after the info session",
+        "status": "open",
+        "from": "Dana",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043920000,
+        "updatedAt": 1791043920000
+       }
+      ],
+      "stats": {
+       "open": 3,
+       "done": 1,
+       "ideas": 1,
+       "credits": 0,
+       "people": 3,
+       "messages": 8
+      },
+      "quiet": false
+     }
+    }
+   ],
+   "recap": "Here's where things stand. You decided: Info session scheduled Thursday at 6. Still to do: Priya will Book the room by Monday. Ideas on the table: Dana's idea to Boba social after the info session. 1 thing already done. Nice work."
+  },
+  {
+   "file": "3-roommates.txt",
+   "title": "Apt 4B 🏠",
+   "code": "ROWAN-N9AJL5",
+   "events": [
+    {
+     "t": "msg",
+     "who": "Sam",
+     "text": "wifi bill is due again"
+    },
+    {
+     "t": "msg",
+     "who": "Priya",
+     "text": "I'll pay the wifi bill by Friday"
+    },
+    {
+     "t": "react",
+     "ref": "I'll pay the wifi bill by Friday"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "ROWAN-N9AJL5",
+      "title": "Apt 4B 🏠",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Sam"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "commitment",
+        "text": "pay wifi bill",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043980000,
+        "updatedAt": 1791043980000
+       }
+      ],
+      "stats": {
+       "open": 1,
+       "done": 0,
+       "ideas": 0,
+       "credits": 0,
+       "people": 2,
+       "messages": 2
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Jordan",
+     "text": "can we all do a deep clean sunday?"
+    },
+    {
+     "t": "msg",
+     "who": "Sam",
+     "text": "ok sunday it is"
+    },
+    {
+     "t": "react",
+     "ref": "ok sunday it is"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "ROWAN-N9AJL5",
+      "title": "Apt 4B 🏠",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Sam"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Jordan"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "commitment",
+        "text": "pay wifi bill",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043980000,
+        "updatedAt": 1791043980000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "deep clean on Sunday",
+        "status": "open",
+        "from": "Sam",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791044020000,
+        "updatedAt": 1791044020000
+       }
+      ],
+      "stats": {
+       "open": 2,
+       "done": 0,
+       "ideas": 0,
+       "credits": 0,
+       "people": 3,
+       "messages": 4
+      },
+      "quiet": false
+     }
+    },
+    {
+     "t": "msg",
+     "who": "Jordan",
+     "text": "what if we made a chore wheel so nobody fights about dishes"
+    },
+    {
+     "t": "msg",
+     "who": "Sam",
+     "text": "lol fair"
+    },
+    {
+     "t": "react",
+     "ref": "what if we made a chore wheel so nobody fights about dishes"
+    },
+    {
+     "t": "tree",
+     "tree": {
+      "code": "ROWAN-N9AJL5",
+      "title": "Apt 4B 🏠",
+      "people": [
+       {
+        "alias": "P1",
+        "name": "Sam"
+       },
+       {
+        "alias": "P2",
+        "name": "Priya"
+       },
+       {
+        "alias": "P3",
+        "name": "Jordan"
+       }
+      ],
+      "items": [
+       {
+        "id": "i1",
+        "kind": "commitment",
+        "text": "pay wifi bill",
+        "status": "open",
+        "from": "Priya",
+        "owner": "Priya",
+        "due": "Friday",
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791043980000,
+        "updatedAt": 1791043980000
+       },
+       {
+        "id": "i2",
+        "kind": "decision",
+        "text": "deep clean on Sunday",
+        "status": "open",
+        "from": "Sam",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791044020000,
+        "updatedAt": 1791044020000
+       },
+       {
+        "id": "i3",
+        "kind": "idea",
+        "text": "chore wheel to assign dish duties",
+        "status": "open",
+        "from": "Jordan",
+        "owner": null,
+        "due": null,
+        "source": "chat",
+        "credited": false,
+        "createdAt": 1791044060000,
+        "updatedAt": 1791044060000
+       }
+      ],
+      "stats": {
+       "open": 3,
+       "done": 0,
+       "ideas": 1,
+       "credits": 0,
+       "people": 3,
+       "messages": 6
+      },
+      "quiet": false
+     }
+    }
+   ],
+   "recap": "Here's where things stand. You decided: deep clean on Sunday. Still to do: Priya will pay wifi bill by Friday. Ideas on the table: Jordan's idea to chore wheel to assign dish duties."
+  }
+ ]
+}

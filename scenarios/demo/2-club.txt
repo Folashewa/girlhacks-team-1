@@ -1,0 +1,13 @@
+# Demo chat 2: a student club board. Priya is in this one too.
+# title: Women in CS Board 💜
+Ama: info session next week! when should we do it
+Priya: does thursday at 6 work for everyone?
+Dana: yes, thursday at 6 it is
+---
+Priya: I'll book the room by Monday
+Ama: I'll make the flyer by Saturday
+---
+Dana: what if we do a boba social after the info session
+Ama: omg yes
+---
+Ama: flyer is done!

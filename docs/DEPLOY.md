@@ -61,3 +61,12 @@ RESURFACE_AFTER_MIN=1
 UNPROMPTED_COOLDOWN_MIN=1
 ```
 Rehearse with `npm run sim -- scenarios/credit.txt` and `scenarios/edge-cases.txt`.
+
+## Demo stage (video + in person)
+
+Open `http://127.0.0.1:8787/demo.html` while the bot runs (`npm run dev` or `npm run tree`).
+
+- **Acts 0–3** replay a recorded group chat: the mess without Keeper, the same chat with Keeper (tapbacks, credit, tree link, voice recap) and the grove. → / ← switch acts, space pauses, R restarts. `demo.html?auto=1` plays everything in a row for screen recording; `?act=4` jumps to an act.
+- **Act 4 · Try it live** is a web iMessage simulator: type as anyone in the group and the real Keeper and model answer. It only works on the laptop running the bot, so strangers can't spend your model credits. To use it through a tunnel, open `demo.html?token=<INGEST_TOKEN from .env>`.
+- Links Keeper sends become tappable previews that open the tree page on the same site. The recorded trees and Priya's grove code open there too.
+- Edit the chats in `scenarios/demo/*.txt`, then `npm run demo:build` to re-record them through the real model and ElevenLabs (about a minute).

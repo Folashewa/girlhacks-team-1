@@ -151,6 +151,7 @@ export class Keeper {
     const now = this.now();
     const aliases = new Set(Object.values(chat.people).map((x) => x.alias));
     const inBurst = new Set(p.lines.map((l) => l.alias));
+    const known = new Set(chat.items.map((i) => i.id)); // items from earlier bursts; only these can be "restated"
     const toLike = new Set<number>();
 
     for (const it of out.items) {
@@ -182,6 +183,7 @@ export class Keeper {
       if (c.confidence < rules.minConfidence) continue;
       const item = chat.items.find((x) => x.id === c.itemId);
       if (!item || item.kind !== "idea" || item.credited) continue;
+      if (!known.has(item.id)) continue; // an idea can't be restated in the same burst it was first said
       if (item.from === c.restatedBy || !inBurst.has(c.restatedBy)) continue;
       if (!this.gate(chat)) continue;
       const restater = nameOf(chat, c.restatedBy);

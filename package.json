@@ -14,6 +14,7 @@
     "terminal": "tsx src/index.ts terminal",
     "tree": "tsx src/index.ts api-only",
     "sim": "tsx src/sim.ts",
+    "demo:build": "tsx src/demo-build.ts",
     "meeting": "tsx src/meeting-cli.ts",
     "test": "node --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit"

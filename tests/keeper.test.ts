@@ -101,6 +101,20 @@ test("no credit when the original author repeats their own idea", async () => {
   assert.equal(t.sent.length, 0);
 });
 
+test("no credit for an idea first said in the same burst", async () => {
+  const t = setup({
+    items: [{ kind: "idea", text: "start coding now", from: "P2", msg: 1, confidence: 0.9 }],
+    credits: [{ itemId: "i1", restatedBy: "P1", confidence: 0.9 }],
+  });
+  await t.say(PRIYA, "hi", "Priya");
+  await t.say(JAKE, "let's just start coding", "Jake");
+  await t.say(PRIYA, "agreed, start coding");
+  await t.keeper.flushAll();
+  assert.equal(t.chat().items.length, 1);
+  assert.equal(t.sent.length, 0);
+  assert.ok(!t.chat().items[0]!.credited);
+});
+
 test("credit is given at most once per idea", async () => {
   const t = setup();
   await seedIdea(t);

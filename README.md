@@ -28,9 +28,6 @@ We kept the tool list short. Each tool does one real job.
 | **DeepSpace** | Hosts the website on `*.app.space` | Best Use of DeepSpace |
 | **GoDaddy Registry** | Our domain, where people type their tree code | [MLH] Best Domain Name |
 
-Also eligible: 1st/2nd/3rd overall, Best Beginner Hack (if ≥50% of the team are first-time hackers), Best Diversity Hack (if ≥75% identify as women or non-binary).
-
-We skipped **Gemini** (it would do the same job as Azure, and judges reward depth over a long tool list) and **Solana** (it doesn't fit the project).
 
 ## Quick start (no keys needed)
 

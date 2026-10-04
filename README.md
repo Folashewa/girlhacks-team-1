@@ -22,9 +22,9 @@ We kept the tool list short. Each tool does one real job.
 | **Photon Spectrum** | Keeper lives in a real iMessage group: tapbacks, threaded replies, voice notes |
 | **Azure OpenAI** | One structured model call per burst finds commitments, decisions and restated ideas |
 | **ElevenLabs** | `keeper recap voice`, the 🔊 Recap button, and meeting transcription that tells speakers apart |
-| **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable; a continuous aggregate draws each tree's "growth rings" |
+| **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable. Continuous aggregation creates each tree's "growth rings" |
 | **Meetings → next steps** | Paste or record a meeting; get owners, decisions and ideas, credited per speaker |
-| **Tree codes + Enchanted Grove** | The glowing tree/grove website |
+| **Enchanted Grove Tree** | The glowing tree acts as a singular place to see everything occurring |
 | **Azure App Service** | Runs Keeper's website and API around the clock |
 | **grovekeeper.club** | Our domain, where people type their tree code |
 
@@ -34,9 +34,9 @@ Requires **Node 22** (20.12+ works).
 
 ```bash
 npm install
-npm test               # 23 behaviour tests, no API key needed
-npm run typecheck      # no errors
-npm run terminal       # chat with Keeper in your terminal: type  Priya: I'll do the slides by Friday
+npm test               # 25 behaviour tests
+npm run typecheck     
+npm run terminal       # chat with Keeper in your terminal
 npm run sim -- scenarios/credit.txt --save    # replay a conversation, save it, print its tree code
 npm run sim -- scenarios/club.txt --save      # a second chat with Priya in it -> her grove has 2 trees
 npm run tree           # open http://127.0.0.1:8787 and type a printed code (try Priya's GROVE- code)
@@ -118,7 +118,6 @@ If the shared Photon number can't join a group, try in order: ask the Photon tab
 | `POST /api/meetings?title=...` | Body: transcript text, or an audio file. Returns `{ code, title, added }` |
 | `GET /api/health` | Which tools are live |
 
-## Docs
 
 - [docs/SETUP.md](docs/SETUP.md): every key and account, and where to get it
 - [docs/DEPLOY.md](docs/DEPLOY.md): keeping it running, Azure hosting, the domain, the demo stage

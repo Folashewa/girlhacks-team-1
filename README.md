@@ -137,4 +137,4 @@ https://youtu.be/KEDjruleb6I?si=Gh5jh_zJ5L7e4p5y
 
 If your device still can't reach grovekeeper.club, the same demo is at https://keepergrove.azurewebsites.net/demo.html. 
 
-Link to Presentation:https://us.wps.com/cms/docs/d/cbEaaegJuxQEPP0o?platform=pc&refer=copylink
+Link to Presentation: https://docs.google.com/presentation/d/1kb47jy-YO_jRFXcjLYUYEsnMBgG2gnGdcsyJAWDm-nY/edit?usp=sharing

@@ -10,12 +10,7 @@ npm start            # macOS: caffeinate -i npm start
 ```
 Memory is in `data/state.json`, so restarts are safe.
 
-**Optional: Azure App Service** (also strengthens the Avanade entry). Any always-on Node host works:
-```bash
-az webapp up -n keeper-bot -g keeper-rg --runtime "NODE:22-lts" --sku B1
-az webapp config appsettings set -n keeper-bot -g keeper-rg --settings PROJECT_ID=... PROJECT_SECRET=... AZURE_OPENAI_ENDPOINT=... AZURE_OPENAI_API_KEY=... API_HOST=0.0.0.0 API_PORT=8080 DATA_FILE=/home/data/state.json
-az webapp config set -n keeper-bot -g keeper-rg --startup-file "npm start" --always-on true
-```
+**Always on: Azure App Service.** This is how https://grovekeeper.club runs; see [Azure App Service](#azure-app-service) below.
 
 ## Share the website
 
@@ -25,33 +20,30 @@ npx cloudflared tunnel --url http://localhost:8787
 ```
 That prints an `https://....trycloudflare.com` URL. Trees can only be opened with their code, and wrong guesses are rate-limited. Set `INGEST_TOKEN=some-secret` in `.env` so only your team can upload meetings.
 
-## DeepSpace
+## Azure App Service
 
-DeepSpace hosts apps on `<name>.app.space` (Cloudflare Workers). The bot needs a long-running process, so it stays on the laptop or Azure. DeepSpace hosts the **website** (code entry, tree, grove), which reads data from the bot's API.
+The website and API run on Azure App Service (Linux, B1 plan, Node 24) as the web app `keepergrove` in `keeper-rg`, region `northcentralus` (Azure for Students only allows mexicocentral, francecentral, westus2, northcentralus and canadacentral). It runs `npm run tree`: website, API, recorded demo and the live web phone, without iMessage. B1 costs about $0.018 an hour.
 
 ```bash
-npx create-deepspace keeper-grove
-cd keeper-grove
-npx deepspace auth login
-mkdir -p public/grove && cp ../web/* public/grove/
-# edit public/grove/index.html: <meta name="keeper-api" content="https://<your-bot-url>"> (or pass ?api= in the URL)
-npm run dev        # http://localhost:.../grove/?api=https://<your-tunnel>.trycloudflare.com
-npm run deploy     # https://keeper-grove.app.space/grove/?api=https://<your-tunnel>
+az appservice plan create -g keeper-rg -n keepergrove-plan --is-linux --sku B1 -l northcentralus
+az webapp create -g keeper-rg -p keepergrove-plan -n keepergrove --runtime "NODE|24-lts"
+az webapp config appsettings set -g keeper-rg -n keepergrove --settings AZURE_OPENAI_ENDPOINT=... AZURE_OPENAI_API_KEY=... \
+  AZURE_OPENAI_DEPLOYMENT=... ELEVENLABS_API_KEY=... TIGER_DATABASE_URL=... INGEST_TOKEN=... PUBLIC_URL=https://grovekeeper.club \
+  API_HOST=0.0.0.0 API_PORT=8080 WEBSITES_PORT=8080 DATA_FILE=/home/data/state.json SCM_DO_BUILD_DURING_DEPLOYMENT=true
+az webapp config set -g keeper-rg -n keepergrove --startup-file "npm run tree" --always-on true
+git ls-files -z | xargs -0 zip -q /tmp/keeper.zip     # tracked files only: never .env or data/state.json
+az webapp deploy -g keeper-rg -n keepergrove --src-path /tmp/keeper.zip --type zip
 ```
-Set `CORS_ORIGINS=https://keeper-grove.app.space` in the bot's `.env`.
-
-To compete for "Best Use of DeepSpace" (stretch goal): use DeepSpace's auth so only chat members can see their grove, and its real-time sync instead of polling. The bot would POST items to a DeepSpace HTTP route (`src/server/http-routes.ts` in the DeepSpace app).
+On the public site, the live web phone needs `demo.html?act=4&token=<INGEST_TOKEN>`. Shut it all down afterwards with `az appservice plan delete -g keeper-rg -n keepergrove-plan`.
 
 ## Custom domain
 
-The domain is the front door: someone types `keepergrove.xyz`, enters their chat's code, and sees their tree or grove.
+The domain is the front door: someone types `grovekeeper.club`, enters their chat's code, and sees their tree or grove.
 
-1. Point the GoDaddy Registry domain at wherever the website runs:
-   - DeepSpace: add it as a custom domain in DeepSpace and create the DNS record it asks for.
-   - Azure web app: `az webapp config hostname add --webapp-name keeper-bot -g keeper-rg --hostname keepergrove.xyz`.
-   - Quickest: domain forwarding to `https://keeper-grove.app.space/grove/?api=https://<bot-url>`.
-2. Set `PUBLIC_URL=https://keepergrove.xyz` in the bot's `.env` (add `/grove` if you used the DeepSpace path), so `keeper code` replies link to it.
-3. If the website and bot are on different hosts, add the domain to `CORS_ORIGINS`.
+1. At the registrar (ours is Porkbun), remove the parking records and add: `A @ -> <the app's IP>`, `TXT asuid -> <customDomainVerificationId>`, and for www `CNAME www -> keepergrove.azurewebsites.net` plus `TXT asuid.www`. Get both values with `az webapp show -g keeper-rg -n keepergrove --query customDomainVerificationId` and `dig +short keepergrove.azurewebsites.net`.
+2. `az webapp config hostname add --webapp-name keepergrove -g keeper-rg --hostname grovekeeper.club` (and `www.grovekeeper.club`).
+3. Free HTTPS: `az webapp config ssl create -g keeper-rg -n keepergrove --hostname grovekeeper.club`, then `az webapp config ssl bind --certificate-thumbprint <thumbprint> --ssl-type SNI -g keeper-rg -n keepergrove`, and `az webapp update -g keeper-rg -n keepergrove --https-only true`.
+4. Set `PUBLIC_URL=https://grovekeeper.club` so `keeper code` replies link to it.
 
 ## Demo settings
 

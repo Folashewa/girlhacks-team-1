@@ -8,8 +8,8 @@ Everything goes in `.env` (copy it from `.env.example`). **Never commit `.env`**
 | 2 | Azure OpenAI (or OpenAI) | The "brain" | Person B | Recommended (mock brain works without) |
 | 3 | ElevenLabs | Voice recaps, meeting transcription | Person B/C | Optional |
 | 4 | Tiger Data | Growth history ("growth rings") | Person C | Optional (prize) |
-| 5 | DeepSpace | Hosting the website | Person C | Optional (prize) |
-| 6 | GoDaddy Registry domain | Where people type their tree code | Anyone | Optional (prize) |
+| 5 | Azure App Service | Hosting the website and API | Anyone | Optional |
+| 6 | A domain | Where people type their tree code | Anyone | Optional |
 
 ## 1. Photon Spectrum (iMessage)
 
@@ -95,10 +95,10 @@ SELECT bucket, event, n FROM keeper_growth_15m WHERE tree_id = 'MOSS-K7Q2XA' ORD
 
 Tested here against plain Postgres 16 (the fallback path). The TimescaleDB parts (hypertable, aggregate, compression) only run on Tiger Cloud, so check the startup log line there.
 
-## 5. DeepSpace
+## 5. Azure App Service
 
-See [DEPLOY.md](DEPLOY.md#deepspace). You need to log in with `npx deepspace auth login` (build credits come with the hackathon).
+See [DEPLOY.md](DEPLOY.md#azure-app-service). Ours runs at https://keepergrove.azurewebsites.net.
 
-## 6. GoDaddy Registry domain (MLH prize)
+## 6. Domain
 
-Register a domain through the MLH GoDaddy Registry offer. Something that fits the theme works best, e.g. `keepergrove.xyz`, `findyourtree.tech` or `ourgrove.app`; MLH judges the name itself. Point it at the website (see [DEPLOY.md](DEPLOY.md#custom-domain)) and set `PUBLIC_URL=https://yourdomain` so `keeper code` replies link there.
+Ours is **grovekeeper.club** (registered at Porkbun). Point it at the website (see [DEPLOY.md](DEPLOY.md#custom-domain)) and set `PUBLIC_URL=https://yourdomain` so `keeper code` replies link there.

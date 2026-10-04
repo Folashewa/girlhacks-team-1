@@ -19,13 +19,13 @@ In every group project, someone's idea gets talked over, and ten minutes later s
 | Tool | How we used it |
 | --- | --- |
 | Photon Spectrum (`spectrum-ts`) | iMessage line, tapbacks, threaded replies, voice notes |
-| Azure OpenAI (gpt-4.1-mini) | One structured JSON call per burst of messages. The model proposes and our code decides |
+| Azure OpenAI (gpt-5-mini) | One structured JSON call per burst of messages. The model proposes and our code decides |
 | ElevenLabs | Text-to-speech recaps; Scribe speech-to-text with diarization for meetings and voice notes |
 | Tiger Data | Hypertable of growth events + 15-minute continuous aggregate → "growth rings" chart; compression policy |
-| DeepSpace | Hosts the website on `.app.space` |
-| GoDaddy Registry | Our domain: the front door where you type your tree code |
+| Azure App Service | Hosts the website and API around the clock |
+| grovekeeper.club | Our domain: the front door where you type your tree code |
 
-Hard rules live in code, not the prompt: a 75% confidence threshold, quiet mode, rate limits, the credit message never naming the restater, and the model never seeing phone numbers (people are P1, P2…). These are covered by 23 behaviour tests that run without an API key.
+Hard rules live in code, not the prompt: a 75% confidence threshold, quiet mode, rate limits, the credit message never naming the restater, and the model never seeing phone numbers (people are P1, P2…). These are covered by 25 behaviour tests that run without an API key.
 
 ## Challenges
 - Telling restating apart from agreeing, and sarcasm ("sure I'll do everything lol") apart from real commitments.

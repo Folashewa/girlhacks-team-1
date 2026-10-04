@@ -3,7 +3,7 @@
 //   /?code=MOSS-...   -> one chat's tree (polls every 3 s)
 //   /?code=GROVE-...  -> a person's enchanted grove: every tree they're part of
 // Trees you've opened are remembered on this device; two or more become "My grove".
-// Host this folder anywhere (DeepSpace, your GoDaddy domain...) and point it at the bot with ?api=https://bot-url
+// Served by the bot itself (on Azure at grovekeeper.club). Hosted elsewhere? Point it at the bot with ?api=https://bot-url
 const params = new URLSearchParams(location.search);
 const API = (params.get("api") || document.querySelector('meta[name="keeper-api"]')?.content || "").replace(/\/$/, "");
 import { NS, el, hash, esc, drawTree } from "./tree.js";
@@ -250,7 +250,7 @@ const TOOLS = [
   { key: "elevenlabs", icon: "🎙️", name: "ElevenLabs", what: "Spoken recaps in the chat and here, plus meeting transcription that tells speakers apart." },
   { key: "tiger", icon: "🐯", name: "Tiger Data", what: "Every sprout and bloom is a time-series event; continuous aggregates draw the growth rings." },
   { key: "adp", icon: "📋", name: "Meetings → next steps", what: "Messy meeting transcripts and recordings become owners, decisions and ideas." },
-  { key: "site", icon: "🌐", name: "DeepSpace + GoDaddy Registry", what: "This site is deployed on DeepSpace and served on our own domain." },
+  { key: "site", icon: "🌐", name: "Azure App Service + grovekeeper.club", what: "This site and Keeper's API run on Azure App Service, on our own domain." },
 ];
 async function renderTools() {
   let live = {};
@@ -262,7 +262,7 @@ async function renderTools() {
     (t) =>
       `<div class="tool"><b><span>${t.icon}</span>${t.name}${t.key in live || t.key === "adp" ? `<span class="pill ${on[t.key] ? "on" : "off"}">${on[t.key] ? "live" : "off"}</span>` : ""}</b><p>${t.what}</p></div>`,
   ).join("");
-  $("footTools").textContent = "Photon · Azure OpenAI · ElevenLabs · Tiger Data · DeepSpace · GoDaddy Registry";
+  $("footTools").textContent = "Photon · Azure OpenAI · Azure App Service · ElevenLabs · Tiger Data";
 }
 
 // ---------------------------------------------------------------- recap (ElevenLabs)

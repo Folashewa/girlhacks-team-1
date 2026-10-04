@@ -10,7 +10,7 @@ Every group chat grows its own **tree**. Type the chat's code on our website to 
                                             │   └─► Tiger Data (growth history, time-series)
                                             ▼
                                     data/state.json ──► /api/lookup/<code> ──► Keeper Grove website (web/)
-                                                                               on DeepSpace + our GoDaddy domain
+                                                                               on Azure App Service at grovekeeper.club
 ```
 
 ## Tools
@@ -25,8 +25,8 @@ We kept the tool list short. Each tool does one real job.
 | **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable; a continuous aggregate draws each tree's "growth rings" |
 | **Meetings → next steps** | Paste or record a meeting; get owners, decisions and ideas, credited per speaker |
 | **Tree codes + Enchanted Grove** | The glowing tree/grove website |
-| **DeepSpace** | Hosts the website on `*.app.space` |
-| **GoDaddy Registry** | Our domain, where people type their tree code |
+| **Azure App Service** | Runs Keeper's website and API around the clock |
+| **grovekeeper.club** | Our domain, where people type their tree code |
 
 ## Quick start (no keys needed)
 
@@ -121,7 +121,7 @@ If the shared Photon number can't join a group, try in order: ask the Photon tab
 ## Docs
 
 - [docs/SETUP.md](docs/SETUP.md): every key and account, and where to get it
-- [docs/DEPLOY.md](docs/DEPLOY.md): keeping it running, DeepSpace, GoDaddy domain, demo settings
+- [docs/DEPLOY.md](docs/DEPLOY.md): keeping it running, Azure hosting, the domain, the demo stage
 - [docs/DEVPOST.md](docs/DEVPOST.md): submission draft and demo script
 
 Link to Presentation:

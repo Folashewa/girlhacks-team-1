@@ -129,6 +129,7 @@ Codes for
 Suggestion: start with **LILY-LSCPQH** (shown in demo), then **GROVE-B67FWN** to show the grove. You can type codes in any case, with or without the dash.
 
 The demo links:
+https://youtu.be/KEDjruleb6I?si=Gh5jh_zJ5L7e4p5y 
 - **Demo, presenter mode:** https://grovekeeper.club/demo.html 
   Use → / ← to switch acts, space to pause and R to restart.
 - **Auto-play, for screen-recording the video:** https://grovekeeper.club/demo.html?auto=1 

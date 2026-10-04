@@ -25,7 +25,6 @@ We kept the tool list short. Each tool does one real job.
 | **Tiger Data** | Every sprout/bloom is a time-series event in a hypertable; a continuous aggregate draws each tree's "growth rings" |
 | **Meetings → next steps** | Paste or record a meeting; get owners, decisions and ideas, credited per speaker |
 | **Tree codes + Enchanted Grove** | The glowing tree/grove website |
-| **DeepSpace** | Hosts the website on `*.app.space` |
 | **GoDaddy Registry** | Our domain, where people type their tree code |
 
 ## Quick start (no keys needed)

@@ -118,9 +118,22 @@ If the shared Photon number can't join a group, try in order: ask the Photon tab
 | `POST /api/meetings?title=...` | Body: transcript text, or an audio file. Returns `{ code, title, added }` |
 | `GET /api/health` | Which tools are live |
 
+## How to Run On Your Device
 
-- [docs/SETUP.md](docs/SETUP.md): every key and account, and where to get it
-- [docs/DEPLOY.md](docs/DEPLOY.md): keeping it running, Azure hosting, the domain, the demo stage
-- [docs/DEVPOST.md](docs/DEVPOST.md): submission draft and demo script
+Codes for 
+| **GROVE-B67FWN** | **Priya's Enchanted Grove**: all three trees together. Best one to show off. |
+| **LILY-LSCPQH** | CS 4800 Capstone 🎓, the group project from the demo |
+| **SAGE-W95D6A** | Women in CS Board 💜 |
+| **ROWAN-N9AJL5** | Apt 4B 🏠 |
+
+Suggestion: start with **LILY-LSCPQH** (shown in demo), then **GROVE-B67FWN** to show the grove. You can type codes in any case, with or without the dash.
+
+The demo links:
+- **Demo, presenter mode:** https://grovekeeper.club/demo.html 
+  Use → / ← to switch acts, space to pause and R to restart.
+- **Auto-play, for screen-recording the video:** https://grovekeeper.club/demo.html?auto=1 
+- **Website, where you enter a tree code:** https://grovekeeper.club 
+
+If your device still can't reach grovekeeper.club, the same demo is at https://keepergrove.azurewebsites.net/demo.html. 
 
 Link to Presentation:
